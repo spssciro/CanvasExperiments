@@ -14,7 +14,7 @@ var sH2 = stage.canvas.height / 2;
 
 var particleList = [];
 var friction = .98;
-var particleAmt = 300;
+var particleAmt = 1000;
 var mouseX;
 var mouseY;
 var emitter;
@@ -61,7 +61,7 @@ function init(){
 	point1.name = "point1";
 
 	point2 = new createjs.Shape();
-	point2.graphics.beginFill("red").drawRect(0, 0, 10,10);
+	point2.graphics.beginFill("rgba("+ cog.randomRGBColor() + ", 1)").drawRect(0, 0, 10,10);
 	point2.x = cog.ranNum(sW,true);
 	point2.y = sH2;
 	point2.name = "point1";

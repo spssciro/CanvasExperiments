@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-  </head>
+    <script src="jspm_packages/system.js"></script>
+    <script src="config.js"></script>
+    
+    <script>
+      System.import('app/main.js');
+    </script>
+
   <body>
 
-    <canvas id="canvas" width="800" height="600"></canvas>
 
-    <script type="text/javascript" src="gears.js"></script>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    
   </body>
 </html>
