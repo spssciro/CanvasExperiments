@@ -1,27 +1,20 @@
-aui-subscriber-overview-rollups 
-section.overview-rollups 
-div.rollup-summary-row 
-div.details-overview-column 
-.collection-processes
- ul li:last-child{
-}
+import jQuery from 'jquery';
 
-.kadeer{
+jQuery(document).ready(init());
 
-    &:hover{
-     opacity:0.5;   
-    }
+//activate!
+function init(){
 
-    .red{
-        color:red;
-    .bold{
-        font-weight:bold;
-        }
-    }
+    const stage = new createjs.Stage('canvas');
+    const canvas = document.getElementById("canvas");
 
+    createjs.Ticker.addEventListener("tick", handleTick);
+    createjs.Ticker.setFPS(60);
+    canvas.width = jQuery(window).width();
+    canvas.height = jQuery(window).height();
 
 }
 
-<div class="kadeer">
-    <p class="red bold december">CLOUD</p>
-</div>
+function handleTick(){
+    console.log("tick");
+}
