@@ -9,7 +9,7 @@ this.vm = {}
 vm.stage = new createjs.Stage('canvas');
 vm.canvas = document.getElementById("canvas");
 vm.particleArray = [];
-vm.emitter = new Emitter(window.innerWidth/2, window.innerHeight/2, true, 100);
+vm.emitter = new Emitter(window.innerWidth/2, window.innerHeight/2, true, 40);
 vm.particleAmt = 400;
 vm.increment = 0;
 vm.gravity = 0.04;
@@ -43,26 +43,27 @@ function createParticles(){
 function moveEmitterAroundStage(){
     vm.emitter.x = Math.random() * window.innerWidth;
     vm.emitter.y = Math.random() * window.innerHeight;
-    vm.particleArray = [];
+    vm.emitter.radius = Math.random() * 100;
 }
-
 
 function handleTick(){
     createParticles();
-    vm.particleArray.forEach((pa,i) =>{
-
-        //pa.p.vy += vm.gravity;
-        pa.p.vx *= 1.01;
-        pa.p.vy *= 1.01;
+    for(var i = vm.particleArray.length - 1; i>=0; i--){
         
-        pa.animate();
+        let particle = vm.particleArray[i];
+        particle.lifeSpan(.1);
 
-        pa.lifeSpan(.1);
-        if(pa.deadFlag === true){
-            vm.stage.removeChild(pa.p);
+        //particle.vy += vm.gravity;
+        particle.p.vx *= 1.01;
+        particle.p.vy *= 1.01;
+        particle.animate();
+
+        if(particle.deadFlag === true){
+            vm.stage.removeChild(particle.p);
+            vm.particleArray.splice(i, 1);
 
         }
-    });
+    }
 
     vm.stage.update();
 }
