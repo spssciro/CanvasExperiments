@@ -1,9 +1,10 @@
 class Emitter {
-    constructor(x, y, vx, vy) {
+    constructor(x, y, emitFlag, vx, vy) {
         this.x = x;
         this.y = y;
         this.vx = vx;
         this.vy = vy;
+        this.emitFlag = emitFlag;
     }
 }
 
