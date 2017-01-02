@@ -31,9 +31,14 @@ function createParticles(){
     if(vm.particleArray.length <= vm.particleAmt && vm.emitter.emitFlag === true){
         for(var i = 0; i < 1; i++){
             vm.increment++;
-            console.log( vm.emitter)
             Math.cos(vm.increment) * vm.emitter.radius;
-            var testParticle = new Particle((Math.cos(vm.increment) * vm.emitter.radius) + vm.emitter.x, (Math.sin(vm.increment) * vm.emitter.radius) + vm.emitter.y,(Math.random() - 0.5) * 1,(Math.random() - 0.5) * 1, vm.stage, 30);
+            var testParticle = new Particle((Math.cos(vm.increment) * vm.emitter.radius) + vm.emitter.x, 
+                                            (Math.sin(vm.increment) * vm.emitter.radius) + vm.emitter.y,
+                                            // (Math.random() - 0.5) * 1, //true random
+                                            // (Math.random() - 0.5) * 1,
+                                            Math.cos(vm.increment) * .1,
+                                            Math.sin(vm.increment) * .1,                                             
+                                            vm.stage, 40);
             testParticle.createShape(1, 4, "#"+((1<<24)*Math.random()|0).toString(16));
             vm.particleArray.push(testParticle);
         }
