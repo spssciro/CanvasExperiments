@@ -13,7 +13,6 @@ class Particle {
             stageReference.addChild(this.p);
         }
     }
-    
     createShape(type, size, color){
         if(type === "square" || type === 1){
             this.p.graphics.beginFill(color).drawRect(0, 0, size,size);
@@ -21,6 +20,9 @@ class Particle {
         else{
             this.p.graphics.beginFill(color).drawCircle(0, 0, size);
         }
+    }
+    addMass(m){
+        this.m = m;
     }
     move(x,y){
         this.p.x = x;
