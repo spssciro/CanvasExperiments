@@ -1,7 +1,8 @@
 System.config({
   baseURL: "/",
   defaultJSExtensions: true,
-  transpiler: "typescript",
+  transpiler: "ts",
+
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
@@ -10,7 +11,11 @@ System.config({
   map: {
     "jquery": "npm:jquery@3.1.1",
     "p2": "npm:p2@0.7.1",
-    "typescript": "npm:typescript@2.1.4",
+    "ts": "github:frankwallis/plugin-typescript@6.0.1",
+    "typescript": "npm:typescript@2.1.5",
+    "github:frankwallis/plugin-typescript@6.0.1": {
+      "typescript": "npm:typescript@2.1.5"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },
@@ -74,7 +79,7 @@ System.config({
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
-    "npm:asn1.js@4.9.0": {
+    "npm:asn1.js@4.9.1": {
       "bn.js": "npm:bn.js@4.11.6",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "inherits": "npm:inherits@2.0.1",
@@ -237,7 +242,7 @@ System.config({
       "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:parse-asn1@5.0.0": {
-      "asn1.js": "npm:asn1.js@4.9.0",
+      "asn1.js": "npm:asn1.js@4.9.1",
       "browserify-aes": "npm:browserify-aes@1.0.6",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "create-hash": "npm:create-hash@1.1.2",
@@ -296,7 +301,7 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:source-map-support@0.4.6": {
+    "npm:source-map-support@0.4.10": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
@@ -321,11 +326,11 @@ System.config({
     "npm:timers-browserify@1.4.2": {
       "process": "npm:process@0.11.9"
     },
-    "npm:typescript@2.1.4": {
+    "npm:typescript@2.1.5": {
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "net": "github:jspm/nodelibs-net@0.1.2",
       "os": "github:jspm/nodelibs-os@0.1.0",
-      "source-map-support": "npm:source-map-support@0.4.6"
+      "source-map-support": "npm:source-map-support@0.4.10"
     },
     "npm:url@0.10.3": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
