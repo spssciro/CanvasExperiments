@@ -9,6 +9,7 @@ System.config({
 
   map: {
     "jquery": "npm:jquery@3.1.1",
+    "p2": "npm:p2@0.7.1",
     "typescript": "npm:typescript@2.1.4",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
@@ -228,6 +229,12 @@ System.config({
     },
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"
+    },
+    "npm:p2@0.7.1": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "poly-decomp": "npm:poly-decomp@0.1.1",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:parse-asn1@5.0.0": {
       "asn1.js": "npm:asn1.js@4.9.0",
