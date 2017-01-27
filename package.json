@@ -16,9 +16,12 @@
     "dependencies": {
       "jquery": "npm:jquery@^3.1.1",
       "p2": "npm:p2@^0.7.1",
+      "pixi": "npm:pixi@^0.3.1",
+      "pixi.js": "npm:pixi.js@4.3.4",
       "ts": "github:frankwallis/plugin-typescript@^6.0.1"
     },
     "devDependencies": {
+      "ts-runtime": "npm:babel-runtime@^5.8.24",
       "typescript": "npm:typescript@^2.0.7"
     }
   }

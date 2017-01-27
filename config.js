@@ -2,7 +2,6 @@ System.config({
   baseURL: "/",
   defaultJSExtensions: true,
   transpiler: "ts",
-
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
@@ -11,7 +10,10 @@ System.config({
   map: {
     "jquery": "npm:jquery@3.1.1",
     "p2": "npm:p2@0.7.1",
+    "pixi": "npm:pixi@0.3.1",
+    "pixi.js": "npm:pixi.js@4.3.4",
     "ts": "github:frankwallis/plugin-typescript@6.0.1",
+    "ts-runtime": "npm:babel-runtime@5.8.38",
     "typescript": "npm:typescript@2.1.5",
     "github:frankwallis/plugin-typescript@6.0.1": {
       "typescript": "npm:typescript@2.1.5"
@@ -58,6 +60,9 @@ System.config({
     "github:jspm/nodelibs-process@0.1.2": {
       "process": "npm:process@0.11.9"
     },
+    "github:jspm/nodelibs-punycode@0.1.0": {
+      "punycode": "npm:punycode@1.3.2"
+    },
     "github:jspm/nodelibs-querystring@0.1.0": {
       "querystring": "npm:querystring@0.2.0"
     },
@@ -91,6 +96,9 @@ System.config({
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "util": "npm:util@0.10.3"
+    },
+    "npm:babel-runtime@5.8.38": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:bn.js@4.11.6": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
@@ -210,6 +218,9 @@ System.config({
       "randombytes": "npm:randombytes@2.0.3",
       "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
+    "npm:earcut@2.1.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:elliptic@6.3.2": {
       "bn.js": "npm:bn.js@4.11.6",
       "brorand": "npm:brorand@1.0.6",
@@ -259,6 +270,24 @@ System.config({
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:pixi-gl-core@1.0.3": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0"
+    },
+    "npm:pixi.js@4.3.4": {
+      "bit-twiddle": "npm:bit-twiddle@1.0.2",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "earcut": "npm:earcut@2.1.1",
+      "eventemitter3": "npm:eventemitter3@2.0.2",
+      "ismobilejs": "npm:ismobilejs@0.4.0",
+      "object-assign": "npm:object-assign@4.1.1",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "pixi-gl-core": "npm:pixi-gl-core@1.0.3",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "punycode": "github:jspm/nodelibs-punycode@0.1.0",
+      "querystring": "github:jspm/nodelibs-querystring@0.1.0",
+      "resource-loader": "npm:resource-loader@2.0.4",
+      "url": "github:jspm/nodelibs-url@0.1.0"
+    },
     "npm:process@0.11.9": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -290,6 +319,11 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
+    },
+    "npm:resource-loader@2.0.4": {
+      "mini-signals": "npm:mini-signals@1.1.1",
+      "parse-uri": "npm:parse-uri@1.0.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:ripemd160@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
