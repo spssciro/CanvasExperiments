@@ -2,6 +2,11 @@ System.config({
   baseURL: "/",
   defaultJSExtensions: true,
   transpiler: "ts",
+  typescriptOptions: {
+    "noImplicitAny": false,
+    "typeCheck": true,
+    "tsconfig": true
+  },
   paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"

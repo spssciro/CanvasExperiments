@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "moduleResolution": "classic",
+    "target": "es5",
+    "noLib": false,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "pretty": true
+  }
+}
