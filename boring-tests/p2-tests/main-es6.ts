@@ -1,7 +1,6 @@
 class SpheresInSpace {
   constructor(){
-	  console.log("typescript test! In space!")	
+	  console.log("typescript test! In space!!")	
 	}
 }
-
-new SpheresInSpace;
+new SpheresInSpace();
