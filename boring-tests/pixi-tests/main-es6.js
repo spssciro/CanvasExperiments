@@ -5,19 +5,19 @@ function App(){
     let vm = this;
     const h = 900;
     const w = 1920;
-    const app = new PIXI.Application(w, h, {antialias: true, backgroundColor : 0x1099bb}, false);
+    const app = new PIXI.Application(w, h, {antialias: true, backgroundColor : 0x2e3b41}, false);
     document.body.appendChild(app.view);
  
     // Init p2.js
     let world = new p2.World({gravity: [0,-9.8]});
     world.defaultContactMaterial.friction = 1;
-	world.defaultContactMaterial.restitution = 1.5;
-	world.defaultContactMaterial.stiffness = 1.25;
+	world.defaultContactMaterial.restitution = .5;
+	world.defaultContactMaterial.stiffness = 5;
  
     // create a testCollisionGroup 
     var testCollisionGroup = 0x0001;
     let squareArray = [];
-	const particleAmt = 100;
+	const particleAmt = 120;
 	let inc = 0;
 
  
@@ -32,13 +32,12 @@ function App(){
 		s.life = (Math.random() * 100) + 50;
         s.square = new PIXI.Graphics();
         s.square.lineStyle(0);
-        s.square.beginFill(0xFFFF0B, 0.5);
+        s.square.beginFill(0x32BE6F, .9);
         s.square.drawRect(0, 0,size, size);
         s.square.endFill();
         s.square.pivot.set(size/2);
         world.addBody(s.squareBody2);
         s.squareBody2.addShape(s.squareShape2);
-         
         app.stage.addChild(s.square);
         squareArray.push(s);
     }
@@ -50,16 +49,15 @@ function App(){
     planeBody.addShape(planeShape); 
     world.addBody(planeBody);
  
-    let rectangle = new PIXI.Graphics();
-    rectangle.lineStyle(1, 0xFF3300, 1);
-    rectangle.beginFill(0x66CCFF);
-    rectangle.drawRect(0, 0, 60, 60);
-    rectangle.endFill();
-    rectangle.x = 170;
-    rectangle.y = 170;
+    let plane = new PIXI.Graphics();
+    plane.beginFill(0x0097cc);
+    plane.drawRect(0, 0, w, 200);
+    plane.endFill();
+    plane.x = planeBody.position[0];
+    plane.y = planeBody.position[1] *-1;
 
-    //Add to child
-    app.stage.addChild(rectangle);  
+    //Add to stage
+    app.stage.addChild(plane);  
  
     app.ticker.add((delta) => {
  
@@ -79,9 +77,10 @@ function App(){
 			}
  
         }
-		let yCosine = Math.cos(inc) * 20;
+		let yCosine = Math.cos(inc) * 10;
 		planeBody.position[1] += yCosine;
- 
+        plane.y = planeBody.position[1] *-1;
+
         // Move physics bodies forward in time
         world.step(30/60);
  
