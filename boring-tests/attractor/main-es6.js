@@ -10,10 +10,10 @@ function App(){
     let mousePos = {x:null, y:null};
 
     // Init p2.js
-    let world = new p2.World({gravity: [0,0]});
+    let world = new p2.World({gravity: [0,-9.8]});
     world.defaultContactMaterial.friction = 0;
-	// world.defaultContactMaterial.restitution = .5;
-	// world.defaultContactMaterial.stiffness = 5;
+	world.defaultContactMaterial.restitution = .5;
+	world.defaultContactMaterial.stiffness = 5;
  
     // create a testCollisionGroup 
     var testCollisionGroup = 0x0001;
@@ -27,12 +27,12 @@ function App(){
     player.g = new PIXI.Graphics()
     player.g.lineStyle(0),
     player.g.beginFill("0xFFFFFF", .9),
-    player.g.drawRect(-50,-50, 50, 50),
+    player.g.drawRect(-50,-100, 50, 100),
+    player.g.pivot.set(-25,-50);
     player.g.endFill();     
-    player.g.pivot.set(-25,-25);
     app.stage.addChild(player.g);
-    player.p2Shape = new p2.Box({ height: 50, width: 50});
-    player.p2Body = new p2.Body({ mass:0.1, position:[w/2,-h/2], angularVelocity:0 });
+    player.p2Shape = new p2.Box({ height: 100, width: 50});
+    player.p2Body = new p2.Body({ mass:10, position:[w/2,-h/2]});
     player.p2Body.addShape(player.p2Shape);
     player.p2Body.angularDamping = 0;
     
@@ -43,20 +43,21 @@ function App(){
     function keypressdown(e){
         //w
         if(e.charCode === 119){
-            console.log("thrust")
-            player.p2Body.applyForceLocal ([0,20]);
+            player.p2Body.applyForceLocal ([0,500]);
         }
         //s
         if(e.charCode === 115){
-            player.p2Body.applyForceLocal ([0,-20]);
+            player.p2Body.applyForceLocal ([0,-500]);
         }
         //a
         if(e.charCode === 97){
             player.p2Body.angularVelocity -= .01;
+            player.p2Body.applyForceLocal ([-500,500]);
         }
         //d
         if(e.charCode === 100){
             player.p2Body.angularVelocity += .01;
+            player.p2Body.applyForceLocal ([500,500]);
         }                
 
 
@@ -106,9 +107,17 @@ function App(){
  
 	    inc += .125;
         
+        player.p2Body.angle = 0;
         player.g.rotation = player.p2Body.angle;
         player.g.x = player.p2Body.position[0];
         player.g.y = player.p2Body.position[1] * -1;
+
+        if(player.g.x > w){
+            player.g.x = 100;
+        }
+        if(player.g.x < 0){
+            player.g.x = w-100;
+        }
 
         createParticles();
 
