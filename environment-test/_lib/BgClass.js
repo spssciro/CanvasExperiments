@@ -1,18 +1,22 @@
-import  DisplayClass  from './DisplayClass.js';
+import DisplayClass  from './DisplayClass.js';
+import WorldClass from './WorldClass';
 
 class BgClass extends DisplayClass {
-    super(){
-        return configureBG();
+    constructor(x, y, w, h){
+        super();
+
+        this.plane = new PIXI.Graphics();
+        this.plane.beginFill(0x0097cc);
+        this.plane.drawRect(x, y, w, h);
+        this.plane.endFill();
+        WorldClass.stage.addChild(this.plane);
+        
+        this.plane.moveBg = (x,y) => {this.moveBg(x,y)};
+        return this.plane;
     }
-    configureBG(){
-        let bgPlane = new PIXI.Graphics();
-        bgPlane.beginFill(0x0097cc);
-        bgPlane.drawRect(0, 0, w, 300);
-        bgPlane.endFill();
-        bgPlane.x = planeBody.position[0];
-        bgPlane.y = planeBody.position[1] *-1;
-        bgPlane.rotation = -planeBody.angle; 
-        return bgPlane;  
+    moveBg(x,y){
+        this.plane.x = x;
+        this.plane.y = y;
     }
 }
 export default BgClass;

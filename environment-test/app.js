@@ -1,31 +1,27 @@
-//IMPORTS
 import WorldClass from './_lib/WorldClass';
+import BgClass from './_lib/BgClass.js';
 
 class App{
     constructor(){
-        // Setup the world
+        //Setup the world
         this.world = WorldClass;
-        //On load resize the renderer to our window size
-        this.world.renderer.resize(window.innerWidth,window.innerHeight);
 
-        // etc / config
+        //Etc / config
         this.controlsObj;
         
-        // Display class objects
+        //Display class objects
         this.player;
-        this.bg;
+        this.bg = new BgClass(0,0,500,500);
 
         //Setup our animation Loop
         this.world.ticker.add((delta) => {
             this.theLoop(delta);
-        });
-       
-        console.log(this);
+        });       
     }
 
     //Our animation loop
     theLoop(delta){
-
+        this.bg.moveBg(Math.random() *10,Math.random()*10);
     }
 }
 

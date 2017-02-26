@@ -3,15 +3,18 @@ import 'pixi.js';
 
 class WorldClass {
     constructor(){
+        //PIXI stage setup        
         let pixi = new PIXI.Application(800, 600, {antialias: true}, false);
         document.body.appendChild(pixi.view);
+        pixi.renderer.resize(window.innerWidth,window.innerHeight);
+        window.addEventListener("resize", ()=>{this.resizeWorld()});
 
-        //convenience vars
+        //Convenience vars
         this.stage = pixi.stage;
         this.ticker = pixi._ticker;
         this.renderer = pixi.renderer;
 
-        // Children tracking arrays
+        //Children tracking arrays
         this.stageArray = [];
         this.enemiesArray = [];           
 
@@ -19,25 +22,17 @@ class WorldClass {
         this.time;
     }
 
-    setupStage(){
-        // Boot up a pixi APP
-    }
     resizeWorld(){
-
+        this.renderer.resize(window.innerWidth,window.innerHeight);
     }
-
-
-
     addDisplay(){
-        console.log(this.x + "yes");
+        
     }
+    deleteDisplay(){
+
+    }    
     addBody(){
 
     }
-
-    deleteDisplay(){
-
-    }
-
 }
 export default (new WorldClass);
