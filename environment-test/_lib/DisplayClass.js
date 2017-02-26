@@ -1,4 +1,4 @@
-import  PixiJS  from '../node_modules/';
+import WorldClass from 'WorldClass.js'
 
 class DisplayClass{
     constructor(x = 0, y = 0, rotation = 0, height = 10, width = 10){
@@ -14,21 +14,6 @@ class DisplayClass{
 
         this.body;
         console.info("display class created");
-    }
-    attachDisplay(){
-        console.log(this.x + "yes");
-    }
-    attachBody(){
-
-    }
-    delete(){
-
-    }
-    move(){
-
-    }    
-    animate(){
-
     }
 }
 export default DisplayClass;
