@@ -5,18 +5,31 @@ class BgClass extends DisplayClass {
     constructor(x, y, w, h){
         super();
 
-        this.plane = new PIXI.Graphics();
-        this.plane.beginFill(0x0097cc);
-        this.plane.drawRect(x, y, w, h);
-        this.plane.endFill();
-        WorldClass.stage.addChild(this.plane);
+        //Create a container for the BG
+        this.bgContainer = new PIXI.Container(x,y,w,h);
         
-        this.plane.moveBg = (x,y) => {this.moveBg(x,y)};
-        return this.plane;
+        //now make a plane for the BG color
+        let bgRectangle = new PIXI.Graphics();
+        bgRectangle.beginFill(0x0097cc);
+        bgRectangle.drawRect(x, y, w, h);
+        bgRectangle.endFill();
+
+        //Add the bg to container
+        this.bgContainer.addChild(bgRectangle);
+        //Add the container to the stage
+        WorldClass.stage.addChild(this.bgContainer);
+        this.bgContainer.moveBg = (x,y) => {this.moveBg(x,y)};
+        
+        return this.bgContainer;
     }
-    moveBg(x,y){
-        this.plane.x = x;
-        this.plane.y = y;
+    moveBg(player){
+        console.log("moveBg");
+        //this.bgContainer.x = x;
+        //this.bgContainer.y = y;
     }
+    addToBgContainer(x,y,graphic){
+
+    }
+    
 }
 export default BgClass;

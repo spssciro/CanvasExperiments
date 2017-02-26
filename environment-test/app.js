@@ -1,5 +1,6 @@
 import WorldClass from './_lib/WorldClass';
 import BgClass from './_lib/BgClass.js';
+import PlayerClass from './_lib/PlayerClass.js';
 
 class App{
     constructor(){
@@ -8,20 +9,22 @@ class App{
 
         //Etc / config
         this.controlsObj;
-        
-        //Display class objects
-        this.player;
+
+        //Setup our world
         this.bg = new BgClass(0,0,500,500);
+
+        //Add our player
+        this.player = new PlayerClass(0,0,20,20);
 
         //Setup our animation Loop
         this.world.ticker.add((delta) => {
             this.theLoop(delta);
-        });       
+        });
     }
 
     //Our animation loop
     theLoop(delta){
-        this.bg.moveBg(Math.random() *10,Math.random()*10);
+        
     }
 }
 

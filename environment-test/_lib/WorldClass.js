@@ -3,20 +3,26 @@ import 'pixi.js';
 
 class WorldClass {
     constructor(){
+
         //PIXI stage setup        
         let pixi = new PIXI.Application(800, 600, {antialias: true}, false);
         document.body.appendChild(pixi.view);
         pixi.renderer.resize(window.innerWidth,window.innerHeight);
         window.addEventListener("resize", ()=>{this.resizeWorld()});
 
-        //Convenience vars
-        this.stage = pixi.stage;
+        //Add a GLOBAL stage container
+        let stageContainer = new PIXI.Container();
+        pixi.stage.addChild(stageContainer);
+
+        //Convenience vars for PIXI objects
+        this.stage = stageContainer;
         this.ticker = pixi._ticker;
         this.renderer = pixi.renderer;
 
         //Children tracking arrays
         this.stageArray = [];
         this.enemiesArray = [];           
+        this.levelArray = [];
 
         //Time
         this.time;

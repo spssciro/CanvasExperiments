@@ -12,5 +12,8 @@ class DisplayClass{
 
         this.body;
     }
+    bodyAnimateLink(){
+        console.log("link")
+    }
 }
 export default DisplayClass;
