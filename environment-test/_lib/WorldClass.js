@@ -1,5 +1,6 @@
 //IMPORTS
 import 'pixi.js';
+import ControlClass from './ControlClass.js';
 
 class WorldClass {
     constructor(){
@@ -23,6 +24,9 @@ class WorldClass {
         this.stageArray = [];
         this.enemiesArray = [];           
         this.levelArray = [];
+
+        //Keypress / Keymap array
+        this.input = ControlClass.keyMap;
 
         //Time
         this.time;

@@ -20,5 +20,7 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
+    "keypress.js": "^2.1.4",
+    "pixi.js" : "^4.4.1"
   }
 }
