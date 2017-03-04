@@ -5,6 +5,7 @@ import ControlClass from './ControlClass.js';
 class PlayerClass extends DisplayClass {
     constructor(x, y, w, h){
         super();
+        this.movementMultiplier = 5;
 
         // Create our simple player square
         this.player = new PIXI.Graphics();
@@ -18,12 +19,20 @@ class PlayerClass extends DisplayClass {
         //add on our methods to the object for return
         this.player.moveBg = (x,y) => {this.moveBg(x,y)};
         
-        ControlClass.addActionCheck({"keyArray":[87],"action": () => this.movePlayer()});
-        ControlClass.addActionCheck({"keyArray":[68],"action": () => this.movePlayer()});
+        ControlClass.addActionCheck({"keyArray":[65],"action": () => this.movePlayer(-1)});
+        ControlClass.addActionCheck({"keyArray":[68],"action": () => this.movePlayer(1)});
+        ControlClass.addActionCheck({"keyArray":[87],"action": () => this.movePlayer(0,-1)});
+        ControlClass.addActionCheck({"keyArray":[83],"action": () => this.movePlayer(0,1)});
+        ControlClass.addActionCheck({"keyArray":[32],"action": () => this.jumpPlayer(-5)});
+
         return this.player;
     }
-    movePlayer(player){
-        this.player.x ++;
+    movePlayer(dirX = 0, dirY = 0){
+        this.player.x += dirX * this.movementMultiplier;
+        this.player.y += dirY * this.movementMultiplier;
+    }
+    jumpPlayer(amount = -1){
+        this.player.y += amount;
     }
     
 }

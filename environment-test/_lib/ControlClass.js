@@ -6,27 +6,26 @@ class ControlClass {
         
         //Pass in action objects to check
         this.actionCheckArray = [];
-
+        
         //bind keydown + up and push to keyMap
         onkeydown = onkeyup = (e) => {
             e = e || event; // to deal with IE
             this.keyMap[e.keyCode] = e.type == 'keydown';
             
-            console.log(this.actionCheckArray[0].keyArray);
-            console.log(this.keyMap)
-
-            //Loop through the action array
-            this.actionCheckArray.forEach((actionObj) => {
-                if(actionObj.keyArray === this.keyMap){
-                    actionObj.action();
-                }
-            });
-
             //Debug method to see what's being spit out
             if(this.debugFlag){
                 this.logInputArray();
             }
         }
+    }
+    checkAction(){
+        //Loop through the action array
+        this.actionCheckArray.forEach((actionObj) => {
+            if (this.keyMap[actionObj.keyArray]){
+                actionObj.action();
+                
+            }
+        });        
     }
     addActionCheck(actionObj){
         if(!actionObj){

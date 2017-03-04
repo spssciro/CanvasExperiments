@@ -1,6 +1,7 @@
 import WorldClass from './_lib/WorldClass';
 import BgClass from './_lib/BgClass.js';
 import PlayerClass from './_lib/PlayerClass.js';
+import ControlClass from './_lib/ControlClass.js';
 
 class App{
     constructor(){
@@ -14,7 +15,7 @@ class App{
         this.bg = new BgClass(0,0,500,500);
 
         //Add our player
-        this.player = new PlayerClass(0,0,20,20);
+        this.player = new PlayerClass(200,200,20,20);
 
         //Setup our animation Loop
         this.world.ticker.add((delta) => {
@@ -24,7 +25,7 @@ class App{
 
     //Our animation loop
     theLoop(delta){
-        
+        ControlClass.checkAction();
     }
 }
 
