@@ -12,6 +12,9 @@ class DisplayClass{
 
         this.body;
     }
+    addBody(){
+        
+    }
     bodyAnimateLink(){
         console.log("link");
     }

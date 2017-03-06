@@ -12,10 +12,10 @@ class App{
         this.controlsObj;
 
         //Setup our world
-        this.bg = new BgClass(0,0,500,500);
+        this.bg = new BgClass(0,0,1000,500);
 
         //Add our player
-        this.player = new PlayerClass(200,200,20,20);
+        this.player = new PlayerClass(200,200,51,100);
 
         //Setup our animation Loop
         this.world.ticker.add((delta) => {

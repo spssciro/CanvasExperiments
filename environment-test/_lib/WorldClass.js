@@ -1,5 +1,5 @@
-//IMPORTS
 import 'pixi.js';
+import p2 from 'p2';
 
 class WorldClass {
     constructor(){
@@ -8,7 +8,7 @@ class WorldClass {
         let pixi = new PIXI.Application(800, 600, {antialias: true}, false);
         document.body.appendChild(pixi.view);
         pixi.renderer.resize(window.innerWidth,window.innerHeight);
-        window.addEventListener("resize", ()=>{this.resizeWorld()});
+        window.addEventListener('resize', ()=>{this.resizeWorld()});
 
         //Add a GLOBAL stage container
         let stageContainer = new PIXI.Container();
