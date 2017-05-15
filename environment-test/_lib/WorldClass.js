@@ -1,5 +1,6 @@
 import 'pixi.js';
 import p2 from 'p2';
+import CollisionGroupClass from './CollisionGroupClass';
 
 class WorldClass {
     constructor(){
@@ -23,10 +24,6 @@ class WorldClass {
         this.p2World.defaultContactMaterial.stiffness = 1e7; // We need infinite stiffness to get exact restitution
         this.p2World.defaultContactMaterial.frictionRelaxation = 3;
 
-        // create a testCollisionGroup 
-        this.worldCollisionGroup = 0x0010;
-        this.playerCollisionGroup = 0x0011;
-
         // Convenience vars for PIXI objects
         this.stage = stageContainer;
         this.ticker = pixi._ticker;
@@ -38,16 +35,30 @@ class WorldClass {
         this.levelArray = [];
 
         // BOTTOM FLOOR/DEADZONE - Add a plane 
-        this.deadZone = new p2.Plane();
+        this.deadZoneShape = new p2.Plane();
+        //this.deadZoneShape.collisionGroup = CollisionGroupClass.world;
         this.deadZoneBody = new p2.Body({ position:[0, -500], mass:0});
-        this.deadZoneBody.addShape(this.deadZone);
-        this.deadZoneBody.setCollisionGroup(this.worldCollisionGroup);
+        this.deadZoneBody.addShape(this.deadZoneShape);
         this.p2World.addBody(this.deadZoneBody);
+
+        // Add DEADZONE shape to the stageArray (for collision detection)
+        this.addToChildrenToStageArray(this.deadZoneShape);
 
         //Time
         this.time;
     }
-
+    addToChildrenToStageArray(childToAdd){
+        if(typeof childToAdd ==='undefined') return;
+        this.stageArray.push(childToAdd);
+    }
+    addToChildrenToEnemiesArray(childToAdd){
+        if(typeof childToAdd ==='undefined') return;
+        this.enemiesArray.push(childToAdd);        
+    }
+    addToChildrenToLevelArray(childToAdd){
+        if(typeof childToAdd ==='undefined') return;
+        this.levelArray.push(childToAdd);
+    }
     resizeWorld(){
         this.renderer.resize(window.innerWidth,window.innerHeight);
     }
