@@ -1,4 +1,6 @@
-class ControlClass {
+import WorldClass from './WorldClass';
+
+class CollisionGroupClass {
     constructor(){
         // Player collision group
         this.player = 1;
@@ -7,6 +9,16 @@ class ControlClass {
         // Enemy collision group
         this.enemy = 3;
     }
+    
+    collisionCheck(){
+        WorldClass.stageArray.forEach((shapeA) => {
+            WorldClass.stageArray.forEach((shapeB) => {
+                if((shapeA.collisionGroup & shapeB.collisionMask) !== 0 && (shapeB.collisionGroup & shapeA.collisionMask) !== 0){
+                    console.error("collision");
+                }
+            });            
+        });
+    }
 }
 
-export default ControlClass;
+export default (new CollisionGroupClass);
